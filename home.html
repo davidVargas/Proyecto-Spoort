@@ -1,0 +1,39 @@
+<div id="home" class="container" align="center" ng-controller="homeCtl" >
+    <br class="clear" />
+    <!--div para la busqueda-->
+    <div class="col-md-12" >
+        <br><br/>
+        <br><br/>
+        <h1 class= "title">Busca tu equipo!</h1></br>
+        <div class="col-md-4" ></div>
+        <form class="col-md-4" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="modBusqueda" placeholder="Encuentralo aca !" required></input>
+                <span class="input-group-btn">
+                    <button class="btn btn-warning" type="button" ng-click="validSearch(modBusqueda)"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            <br><br>
+            <div flash-message="4000" ></div>
+        </form>
+        <div class="col-md-4" ></div>
+        <br><br>
+        <br><br/>
+    </div>
+    <!--div para los resultados de la busqueda-->
+    <div class="col-md-4"  ng-repeat="img in imagenes">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b>{{img.nombre}}</b></h3>
+            </div>
+            <div class="panel-body" align="center">
+                <img ng-src="{{img.url}}">
+                <br><br>
+                <p> Descripcion: {{img.descripcion}}</p>
+                <p> Direccion: {{img.direccion}}</p>
+                <button type="button" class="btn btn-warning" ng-click="verEquipo(img.id)">Ver Perfil</button>
+            </div>
+        </div>
+    </div>
+</div>         
+            

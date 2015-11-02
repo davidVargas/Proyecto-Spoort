@@ -1,0 +1,31 @@
+<div id="login" class="container" align="center" ng-controller="loginCtl">
+    <br class="clear" />
+    <br><br/>
+    <br><br/>
+	<h1>Iniciar Sesion</h1>
+	<br><br>
+	<div class="row">
+		<div class="col-md-4" >
+		</div>
+	    <div class="col-md-4" >
+	        <div class="panel panel-warning">
+		            <div class="panel-heading">
+		            	<h3 class="panel-title"><b>Spoort</b></h3>
+		            </div>
+		            <div class="panel-body">
+		                <form>
+		                	<input class="form-control" type="text" placeholder="Usuario"  required ng-model="modLoginUser"></input>
+							<br><br>
+							<input class="form-control" type="password" placeholder="Contraseña"  required ng-model="modLoginPass"></input>
+							<br><br>
+							<button class="btn btn-warning" type="button"  ng-click="login()">Aceptar</button>
+							<br><br/>
+		                </form>
+		           </div>
+		    </div>
+			<div flash-message="4000" ></div>
+		</div>
+		<div class="col-md-4" >
+		</div>
+	</div>
+</div>

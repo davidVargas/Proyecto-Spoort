@@ -41,4 +41,6 @@ $id_equipo = 2;
 $pruebas = $conexion_spoort->guardarFotoPerfil($url,$nombre,$ext, $id_equipo);
 
 
+// fvdfdfd
+
 ?>
