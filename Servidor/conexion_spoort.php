@@ -87,7 +87,7 @@ class Conexion
 				$json['tipo_mensaje'] = "correcto";
 				array_push($json['parametros'], $res);
             	echo json_encode($json);
-				header("location:perfil_equipo_cliente.php");
+				//header("location:perfil_equipo_cliente.php");
 				
 				// return $res;
 			}else
@@ -113,7 +113,7 @@ class Conexion
 				array_push($json['parametros'], $res);
             	echo json_encode($json);
 
-				header("location:inicio_admin.php");
+				//header("location:inicio_admin.php");
 				
 				//return 2;
 			}else
@@ -221,8 +221,8 @@ class Conexion
 		
         
 		$sql = "Update equipo E
-		set E.nombre = '$var_nombre', E.descripcion = '$var_descripcion', E.direccion = '$var_direccion', '$var_id_provincia' ,
-						E. = '$var_id_deporte' , E. = '$var_horario', E. = '$var_genero'
+		set E.nombre = '$var_nombre', E.descripcion = '$var_descripcion', E.direccion = '$var_direccion', E.id_provincia = '$var_id_provincia' ,
+						E.id_deporte = '$var_id_deporte' , E.horario = '$var_horario', E.genero = '$var_genero'
 		where E.id_usuario = '$id_usuario'";
 		
         // Verificamos que se haya insertado la informacion
@@ -377,7 +377,7 @@ class Conexion
 	
 	//4. nombre_equipo, descripcion, 
 				// id_contacto, direccion, id_provincia, id_deporte, horario, genero
-	public function crearEquipo($var_nombre_equipo, $var_descripcion,
+	public function crearEquipo($var_nombre_equipo, $var_descripcion, 
 				 $var_id_contacto, $var_direccion, $var_id_provincia, $var_id_deporte, $var_horario, $var_genero)
 	{
 		// campos de la base:
@@ -385,9 +385,9 @@ class Conexion
 		
 		
 		$this->Conectar();
-        $sql = "Insert into equipo(nombre, descripcion, id_usuario, direccion, id_provincia, id_deportes, horario, genero )
+        $sql = "Insert into equipo(nombre, descripcion, id_usuario, direccion, id_provincia, id_deportes, horario )
                 values ('$var_nombre_equipo','$var_descripcion','$var_id_contacto','$var_direccion', 
-                			'$var_id_provincia', '$var_id_deporte','$var_horario', '$var_genero')"; // id_imagen_perfil inicia en cero xq se puede agregar despues
+                			'$var_id_provincia', '$var_id_deporte','$var_horario', '$var_genero')";
         
         // Verificamos que se haya insertado la informacion
         if($this->conn->query($sql) == TRUE)
@@ -545,11 +545,12 @@ public function crearCarpeta($var_email)
 		echo "directory exists!";
 	}else
 	{
-		mkdir("/Servidor/fotos/".$var_email);
-		//mkdir("/fotos/".$var_email);
-		echo "Carpeta creada...";
+		mkdir("fotos/".$var_email);
+		echo "Carpeta creada correctamente...";
 
 	} // Fin crear carpeta usuario
+
+
 }
 
 // Funcion: guarda los urls de las imagenes subidas
@@ -564,7 +565,7 @@ public function guardarFotoPerfil($url,$nombre,$extension, $id_equipo)
     	'parametros' => array()
     );
 
-	$sql = "insert into imagen(url, nombre, extension,fk_equipo)
+	$sql = "insert into imagen(url, nombre, extension,id_equipo)
 		values('$url','$nombre','$extension','$id_equipo')";
 
 	$resultado = mysqli_query($this->conn, $sql);

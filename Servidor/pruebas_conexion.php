@@ -33,12 +33,13 @@ $palabras_prueba2 = "Equipo 1";
 //						$var_direccion,$var_id_provincia,$var_id_deporte, $var_horario,
 //						$var_genero);
 
-$nombre = "img1111";
-$url = "E:\MAMP\htdocs\proyecto2\Servidor\Fotos\dvq\img1.jpg";
-$ext = "png";
-$id_equipo = 2;
+//$nombre = "img1111";
+//$url = "E:\MAMP\htdocs\proyecto2\Servidor\Fotos\dvq\img1.jpg";
+//$ext = "png";
+//$id_equipo = 2;
 
-$pruebas = $conexion_spoort->guardarFotoPerfil($url,$nombre,$ext, $id_equipo);
+//$pruebas = $conexion_spoort->guardarFotoPerfil($url,$nombre,$ext, $id_equipo);
 
+$pruebas = $conexion_spoort->crearCarpeta("prueba_crearCarpeta2");
 
 ?>
